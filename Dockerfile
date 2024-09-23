@@ -1,29 +1,15 @@
-pipeline {
-    agent any 
-    tools {
-        maven 'maven'
-    }
-    stages {
 
-        stage("build") {
-            steps {
-              sh ' mvn clean install '
-              sh ' docker build -t springboot_jenkins . '
-            }
-        }
+# Stage 2: Run the application
+FROM eclipse-temurin:17-jre-alpine
 
-        stage("test") {
-            steps {
-                echo "testing the application"
-            }
-        }
+# Set the working directory inside the container
+WORKDIR /app
 
-        stage("deploy") {
-            steps {
-                sh 'docker start springboot_jenkins || docker run --name springboot_jenkins -d -p 8081:8080 springboot_jenkins '
-                sh ' docker ps '
-    
-            }
-        }
-    }
-}
+# Copy the JAR file from the build stage
+COPY target/*.jar app.jar
+
+# Expose the port that the application will run on
+EXPOSE 8080
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
