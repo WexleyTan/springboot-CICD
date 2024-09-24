@@ -7,7 +7,7 @@ pipeline {
         IMAGE = "springboot_jenkins"
     }
     environment {
-        IMAGE = "neathtan/springboot-api"
+        IMAGE = "neathtan/springboot-cd"
         DOCKER_IMAGE = "${IMAGE}:${BUILD_NUMBER}"
         DOCKER_CREDENTIALS_ID = 'neathtan'
 
