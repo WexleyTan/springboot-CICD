@@ -2,6 +2,7 @@ pipeline {
     agent { label "b" }
     tools {
         maven 'maven'
+        jenkins 'jenkins'
     }
     environment {
         IMAGE = "springboot_jenkins"
