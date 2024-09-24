@@ -12,7 +12,7 @@ pipeline {
         GIT_BRANCH = "main"
         MANIFEST_REPO = "manifest-repo"
         MANIFEST_FILE_PATH = "deployment.yaml"
-        GIT_CREDENTIALS_ID = 'git_Pass'
+        GIT_CREDENTIALS_ID = 'wexleyaccess'
     }
     stages {
 
