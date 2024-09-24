@@ -4,9 +4,6 @@ pipeline {
         maven 'maven'
     }
     environment {
-        IMAGE = "springboot_jenkins"
-    }
-    environment {
         IMAGE = "neathtan/springboot-cd"
         DOCKER_IMAGE = "${IMAGE}:${BUILD_NUMBER}"
         DOCKER_CREDENTIALS_ID = 'neathtan'
