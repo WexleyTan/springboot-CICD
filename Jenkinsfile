@@ -18,7 +18,7 @@ pipeline {
 
         stage("build") {
             steps {
-              sh ' mvn clean install '
+              // sh ' mvn clean install '
               sh ' docker build -t ${IMAGE}:${BUILD_NUMBER} . '
             }
         }
@@ -80,7 +80,7 @@ pipeline {
                             echo "🚀 Start pushing to manifest repo"
                             git add ${MANIFEST_FILE_PATH}
                             git commit -m "Update image to ${DOCKER_IMAGE}"
-                            git push https://${GIT_USER}:${GIT_PASS}@github.com/WexleyTan/springboot_manifest
+                            git push https://${GIT_USER}:${GIT_PASS}@github.com/WexleyTan/springboot_manifest.git
                             """
                         }
                     }
