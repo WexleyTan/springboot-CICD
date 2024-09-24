@@ -10,9 +10,8 @@ pipeline {
 
         stage("build") {
             steps {
-              // sh ' mvn clean install '
-              sh 'groups'
-              // sh ' docker build -t ${IMAGE}:${BUILD_NUMBER} . '
+              sh ' mvn clean install '
+              sh ' docker build -t ${IMAGE}:${BUILD_NUMBER} . '
             }
         }
 
@@ -22,12 +21,7 @@ pipeline {
             }
         }
 
-        stage("deploy") {
-            steps {
-                sh 'docker start springboot_jenkins || docker run --name springboot_jenkins -d -p 8081:8080 springboot_jenkins '
-                sh ' docker ps '
-            }
-        }
+       
         
     }
 }
