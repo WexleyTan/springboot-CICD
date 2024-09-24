@@ -10,7 +10,7 @@ pipeline {
 
         stage("build") {
             steps {
-              // sh ' mvn clean install '
+              sh ' mvn clean install '
               sh ' docker build -t ${IMAGE}:${BUILD_NUMBER} . '
             }
         }
