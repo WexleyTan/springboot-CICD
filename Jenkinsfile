@@ -8,7 +8,7 @@ pipeline {
         DOCKER_IMAGE = "${IMAGE}:${BUILD_NUMBER}"
         DOCKER_CREDENTIALS_ID = 'neathtan'
 
-        GIT_MANIFEST_REPO = "https://github.com/WexleyTan/springboot_manifest"
+        GIT_MANIFEST_REPO = "https://github.com/WexleyTan/springboot_manifest.git"
         GIT_BRANCH = "main"
         MANIFEST_REPO = "manifest-repo"
         MANIFEST_FILE_PATH = "deployment.yaml"
@@ -78,7 +78,7 @@ pipeline {
                             ls -l 
                             pwd 
                             echo "🚀 Start pushing to manifest repo"
-                            git add ${MANIFEST_FILE_PATH}
+                            git add ${MANIFEST_REPO}
                             git commit -m "Update image to ${DOCKER_IMAGE}"
                             git push https://${GIT_USER}:${GIT_PASS}@github.com/WexleyTan/springboot_manifest
                             """
