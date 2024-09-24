@@ -1,8 +1,7 @@
 pipeline {
-    agent { label "b" }
+    agent { label "master" }
     tools {
         maven 'maven'
-        jenkins 'jenkins'
     }
     environment {
         IMAGE = "springboot_jenkins"
@@ -11,7 +10,7 @@ pipeline {
 
         stage("build") {
             steps {
-              sh ' mvn clean install '
+              // sh ' mvn clean install '
               sh ' docker build -t ${IMAGE}:${BUILD_NUMBER} . '
             }
         }
