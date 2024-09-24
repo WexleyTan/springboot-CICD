@@ -7,15 +7,15 @@ pipeline {
         IMAGE = "springboot_jenkins"
     }
     environment {
-        IMAGE = "WexleyTan/springboot-CICD"
+        IMAGE = "neathtan/springboot-api"
         DOCKER_IMAGE = "${IMAGE}:${BUILD_NUMBER}"
         DOCKER_CREDENTIALS_ID = 'neathtan'
 
-        GIT_MANIFEST_REPO = "https://github.com/LynaSovann/springboot_manifest.git"
-        GIT_BRANCH = "argocd"
+        GIT_MANIFEST_REPO = "https://github.com/WexleyTan/springboot_manifest"
+        GIT_BRANCH = "main"
         MANIFEST_REPO = "manifest-repo"
-        MANIFEST_FILE_PATH = "manifests/deployment.yaml"
-        GIT_CREDENTIALS_ID = 'https_access_token'
+        MANIFEST_FILE_PATH = "deployment.yaml"
+        GIT_CREDENTIALS_ID = 'personal_access_token'
     }
     stages {
 
