@@ -71,7 +71,7 @@ pipeline {
                     dir("${MANIFEST_REPO}") {
                         withCredentials([usernamePassword(credentialsId: GIT_CREDENTIALS_ID, passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
                             sh """
-                            git --verion
+                            git -v
                             
                             """
                         }
