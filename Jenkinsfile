@@ -23,6 +23,15 @@ pipeline {
             }
         }
 
+    stage("push docker image") {
+            steps {
+                    echo "🚀 Pushing the image to Docker hub"
+                    sh 'docker push ${DOCKER_IMAGE}'
+                    
+                }
+            }
+        }
+
         stage("test") {
             steps {
                 echo "testing the application"
