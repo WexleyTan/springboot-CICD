@@ -71,8 +71,6 @@ pipeline {
                     dir("${MANIFEST_REPO}") {
                         withCredentials([usernamePassword(credentialsId: GIT_CREDENTIALS_ID, passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
                             sh """
-                            echo "${GIT_PASS}"
-                            echo "${GIT_USER}"
                             git config --global user.name "WexleyTan"
                             git config --global user.email "neathtan1402@gmail.com"
                             echo "🚀 Checking..."
