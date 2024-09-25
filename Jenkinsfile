@@ -69,7 +69,7 @@ pipeline {
             steps {
                 script {
                     dir("${MANIFEST_REPO}") {
-                        withCredentials([usernamePassword(credentialsId: 'wexleyaccess', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
+                        withCredentials([usernamePassword(credentialsId: 'GIT_CREDENTIALS_ID', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
                             sh """
                                 git config --global user.name "WexleyTan"
                                 git config --global user.email "neathtan1402@gmail.com"
@@ -78,6 +78,7 @@ pipeline {
                                 ls -l 
                                 pwd 
                                 echo "🚀 Start pushing to manifest repo"
+                                echo ' git username ${GIT_USER}
                                 git add ${MANIFEST_FILE_PATH}
                                 git commit -m "Update image to ${DOCKER_IMAGE}"
                                 git push https://${GIT_USER}:${GIT_PASS}@github.com/WexleyTan/springboot_manifest.git
